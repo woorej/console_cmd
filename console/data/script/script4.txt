@@ -1,0 +1,8 @@
+set_management 192.168.1.8:30001
+get_svc_lists_from_mgmt
+list_svc = context.svc_list_from_mgmt
+for x, i in enumerate(list_svc):
+    make_connection $i
+apd = len(context.appended_svc_sessions)
+for i in range(apd):
+    $i config get_config

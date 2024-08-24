@@ -1,0 +1,9 @@
+# 스토리지가 연결 되면 디스크 정보를 가져온다.
+set_management 192.168.1.7:30001
+get_svc_lists_from_mgmt
+make_connection management
+if '0' in context.current_svc_session_db:
+    0 system get_disk_info
+else:
+    terminate
+test_two_params client success

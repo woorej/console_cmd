@@ -1,0 +1,343 @@
+{
+    "management": {
+        "management":{
+            "get_remote_lists":{
+                "description": "사용 가능한 서버 목록을 가져옵니다.",
+                "usage": "get_remote_lists",
+                "data_type": "없음"
+            },
+            "_command":{
+                "common_prompt": "입력하세요"
+            }
+        }
+    },
+    "ai": {
+        "ai": {
+            "config": {
+                "description": "설정 컨텍스트로 변경",
+                "usage": "aiconfig",
+                "data_type": "없음"
+            },
+            "restart": {
+                "description": "재시작",
+                "usage": "Ai 서비스를 재시작",
+                "data_type": "없음"
+            }
+        },
+        "config": {
+            "set_debug": {
+                "description": "디버그 설정을 변경",
+                "usage": "set debug <1 또는 0>",
+                "data_type": "int",
+                "hints": ["디버그를 활성화하려면 1, 비활성화하려면 0"]
+            },
+            "set_addr": {
+                "description": "서비스의 IP 주소와 포트를 설정합니다. 두 값을 동시에 업데이트합니다.",
+                "usage": "set_addr <ip_address>:<port>",
+                "data_type": "str",
+                "hints": ["ip:port 형식으로 IP 주소와 포트"]
+            },
+            "set_ip": {
+                "description": "서비스의 IP 주소를 설정합니다. 포트는 변경하지 않고 IP 주소만 업데이트합니다.",
+                "usage": "set_ip <ip_address>",
+                "data_type": "str",
+                "hints": ["IP 주소"]
+            },
+            "set_port": {
+                "description": "서비스의 포트를 설정합니다. IP 주소는 변경하지 않고 포트만 업데이트합니다.",
+                "usage": "set_port <port>",
+                "data_type": "str",
+                "hints": ["포트 번호"]
+            },
+            "_command":{
+                "common_prompt": "입력하세요"
+            }
+        }
+    },
+    "client": {
+        "client" : {
+            "avi": {
+                "description": "avi 컨텍스트로 변경",
+                "usage": "avi",
+                "data_type": "없음"
+            },
+            "two_param": {
+                "description": "두 개의 매개변수를 사용하는 테스트 함수",
+                "usage": "two_param <str1> <str2>",
+                "data_type": "str, str",
+                "hints": ["첫 번째 번호를 입력하세요", "두 번째 번호를 입력하세요"]
+            },
+            "_command":{
+                "common_prompt": "입력하세요"
+            }
+        }
+    },
+    "avi": {
+        "avi": {
+            "request": {
+                "description": "avi 시뮬레이터 실행",
+                "usage": "request",
+                "data_type": "없음",
+                "hints": []
+            },
+            "request_n": {
+                "description": "N개의 이미지를 전송",
+                "usage": "request_n <N>",
+                "data_type": "int",
+                "hints": ["요청할 이미지 수를 입력하세요"]
+            },
+            "stop_simulator": {
+                "description": "avi가 실행 중일 때 중지",
+                "usage": "stop_simulator",
+                "data_type": "없음",
+                "hints": []
+            },
+            "set_period": {
+                "description": "초당 전송할 이미지 수를 설정합니다.",
+                "usage": "set_period <images_per_second>",
+                "data_type": "int",
+                "hints": ["시간 간격을 입력하세요"]
+            },
+            "show_settings": {
+                "description": "avi 설정을 표시합니다.",
+                "usage": "show_settings",
+                "data_type": "없음",
+                "hints": []
+            }
+        }
+    },
+    "common": {
+        "context": {
+            "helps": {
+                "description": "명령어 목록과 매개변수를 표시합니다.",
+                "usage": "helps",
+                "data_type": "없음"
+            }
+        },
+        "local": {
+            "local": {},
+            "root": {
+                "restart": {
+                    "description": "프로그램 재시작",
+                    "usage": "restart",
+                    "data_type": "없음" 
+                },
+                "read_property": {
+                    "description": "속성 이름 경로를 제공하여 중첩된 속성의 값을 읽습니다. 최종 속성이 존재하는 경우 해당 값을 반환합니다.",
+                    "usage": "read_property <attr1> <attr2> ... <attrN>",
+                    "data_type": "str(동적)"
+                },
+                "show_all_attribute": {
+                    "description": "인스턴스의 사용자 정의 속성 및 해당 값을 모두 수집하여 반환합니다. 개인 또는 매직 속성은 필터링됩니다.",
+                    "usage": "show_all_attribute",
+                    "data_type": "dict"
+                },
+                "is_object_and_show_attributes": {
+                    "description": "지정된 속성 경로 끝에 있는 속성이 객체인지 확인하고, 객체일 경우 모든 속성을 반환합니다. 객체가 아닐 경우 오류 메시지를 반환합니다.",
+                    "usage": "is_object_and_show_attributes <attr1> <attr2> ... <attrN>",
+                    "data_type": "str(동적)"
+                }
+            },
+            "config": {
+                "get_config": {
+                    "description": "서비스 구성 설정을 표시합니다.",
+                    "usage": "get_config",
+                    "data_type": "없음"
+                },
+                "set_zeroconfig": {
+                    "description": "Zeroconfig의 식별자를 변경합니다.",
+                    "usage": "set_zeroconfig <identifier>._tcp.local.",
+                    "data_type": "str",
+                    "hints": ["식별자"]
+                },
+                "_command":{
+                    "common_prompt": "입력하세요"
+                }
+            },
+            "log": {
+                "append_address": {
+                    "description": "원격 로그 주소를 추가합니다. 매개변수가 제공되지 않으면 자신의 주소를 반환하고, 제공되면 해당 주소를 등록합니다.",
+                    "usage": "append_address {<ip>:<port>}",
+                    "data_type": "선택적_str",
+                    "hints": ["주소"]
+                },
+                "log_status":{
+                    "description": "원격 주소와 로그 주소 핸들러가 있는지 표시합니다.",
+                    "usage": "log_status",
+                    "data_type": "없음"
+                },
+                "delete_address":{
+                    "description": "원격 주소를 삭제합니다. 매개변수가 제공되지 않으면 자신의 주소를 반환하고, 제공되면 해당 주소를 제거합니다.",
+                    "usage": "delete_address <ip>:<port>",
+                    "data_type": "선택적_str",
+                    "hints": ["주소"]
+                },
+                "get_log_path": {
+                    "description": "로그 파일이 저장된 경로를 검색합니다.",
+                    "usage": "get_log_path",
+                    "data_type": "없음"
+                },
+                "test_log_n": {
+                    "description": "N개의 로그를 출력합니다.",
+                    "usage": "test_log_n <N>",
+                    "data_type": "int",
+                    "hints": ["숫자"]
+                },
+                "_command":{
+                    "common_prompt": "입력하세요"
+                }
+            }
+        },
+        "nsh":{
+            "network":{
+                "download_file": {
+                    "description": "파일 다운로드",
+                    "usage": "download_file <session> <file_path>",
+                    "data_type": "int, str",
+                    "hints": ["세션:", "파일 경로:"]
+                },
+                "upload_file": {
+                    "description": "파일 업로드",
+                    "usage": "upload_file <session> <file_path> <선택적: 파일 수>",
+                    "data_type": "int, str",
+                    "hints": ["세션:", "파일 경로:"]
+                },
+                "_command":{
+                    "common_prompt": "입력하세요"
+                }
+            },
+            "nsh": {
+                "change_language": {
+                    "description": "언어 변경",
+                    "usage": "change_language <언어 이름>",
+                    "data_type": "str"
+                },  
+                "log": {
+                    "description": "로그 컨텍스트로 변경합니다.",
+                    "usage": "log",
+                    "data_type": "없음"
+                },
+                "ping": {
+                    "description": "세션이 연결되었는지 확인합니다.",
+                    "usage": "ping <세션 인덱스>",
+                    "data_type": "int",
+                    "hints": ["세션 인덱스: "]
+                },
+                "set_management": {
+                    "description": "관리(Mgmt) 서버의 주소를 설정합니다.",
+                    "usage": "set_management <주소>",
+                    "data_type": "없음",
+                    "hints": ["주소 <ip>:<port>:"]
+                },
+                "set_adv_management": {
+                    "description": "Zeroconfig ID를 사용하여 관리(Mgmt) 서버의 주소를 설정합니다.",
+                    "usage": "set_adv_management <zeroconfig_id>",
+                    "data_type": "없음",
+                    "hints": ["zeroconfig ID:"]
+                },
+                "get_svc_lists_from_mgmt": {
+                    "description": "관리 서버에서 사용 가능한 서비스 목록을 요청합니다.",
+                    "usage": "get_svc_lists_from_mgmt",
+                    "data_type": "없음"
+                },
+                "make_connection": {
+                    "description": "연결하려는 서비스에 대한 세션을 추가합니다.",
+                    "usage": "make_connection",
+                    "data_type": "없음",
+                    "hints": ["번호 또는 서비스 이름:"]
+                },
+                "show_appended_svc_sessions": {
+                    "description": "추가된 서비스 세션 목록을 표시합니다.",
+                    "usage": "show_appended_svc_sessions",
+                    "data_type": "없음"
+                },
+                "elect_current_svc_session": {
+                    "description": "저장된 서비스 세션 중 하나를 선택하여 사용합니다.",
+                    "usage": "elect_current_svc_session",
+                    "data_type": "없음",
+                    "hints": ["번호: "]
+                },
+                "show_current_session": {
+                    "description": "현재 선택된 서비스 세션을 표시합니다.",
+                    "usage": "show_current_session",
+                    "data_type": "없음"
+                },
+                "get_remote_commands": {
+                    "description": "선택된 세션에서 사용 가능한 명령 목록을 요청합니다.",
+                    "usage": "get_remote_commands",
+                    "data_type": "없음"
+                },
+                "show_remote_commands": {
+                    "description": "저장된 원격 명령 목록을 표시합니다.",
+                    "usage": "show_remote_commands",
+                    "data_type": "없음"
+                },
+                "test_two_params": {
+                    "description": "두 개의 매개변수를 입력합니다.",
+                    "usage": "test_two_params <param1> <param2>",
+                    "data_type": "어떤",
+                    "hints": ["첫 번째 매개변수:", "두 번째 매개변수:"]
+                },
+                "run_my_script": {
+                    "description": "스크립트 파일의 명령을 한 줄씩 실행합니다.",
+                    "usage": "run_my_script <스크립트 경로>",
+                    "data_type": "파일 경로",
+                    "hints": ["스크립트 경로:"]
+                },
+                "run_shell_script": {
+                    "description": "스크립트 파일의 명령을 한 줄씩 실행합니다.",
+                    "usage": "run_my_script <세션 인덱스> <스크립트 경로>",
+                    "data_type": "int, str",
+                    "hints": ["세션 인덱스", "스크립트 경로"]
+                },
+                "_command":{
+                    "common_prompt": "입력하세요"
+                }
+            },
+            "log":{
+                "show_remote_log_conn": {
+                    "description": "원격 로그 서버의 주소를 표시합니다.",
+                    "usage": "show_remote_log_conn",
+                    "data_type": "없음"
+                },
+                "alter_remote_log_conn": {
+                    "description": "원격 로그 서버의 포트를 변경합니다.",
+                    "usage": "alter_remote_log_conn <포트>",
+                    "data_type": "int",
+                    "hints": ["포트"] 
+                },
+                "start_remote_log": {
+                    "description": "구성된 포트에서 원격 로그 서버를 시작합니다.",
+                    "usage": "start_remote_log",
+                    "data_type": "없음"
+                },
+                "set_log_prefix": {
+                    "description": "로그에 접두사를 표시할지 토글합니다. 기본적으로 켜져 있습니다.",
+                    "usage": "set_log_prefix",
+                    "data_type": "없음",
+                    "hints": ["켜려면 1, 끄려면 0"]
+                },
+                "test": {
+                    "description": "테스트",
+                    "usage": "test",
+                    "data_type": "없음"
+                },
+                "download_log": {
+                    "description": "로그 파일을 다운로드합니다.",
+                    "usage": "download_log <세션 인덱스> <선택적: 로그 수>",
+                    "data_type": "int",
+                    "hints": ["세션 인덱스:"]
+                },
+                "append_address": {
+                    "description": "원격 로그 주소를 추가합니다.",
+                    "usage": "append_address <세션 인덱스> <선택적: 주소>",
+                    "data_type": "int",
+                    "hints": ["세션 인덱스:"]
+                },
+                "_command":{
+                    "common_prompt": "입력하세요"
+                }
+            }
+        }
+    }
+}

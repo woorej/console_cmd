@@ -1,0 +1,6 @@
+set_management 192.168.1.7:40001
+get_svc_lists_from_mgmt
+make_connection ai_service -1
+if '1' in context.current_svc_session_db:
+    1 system get_gpu_info
+test_two_param ai success

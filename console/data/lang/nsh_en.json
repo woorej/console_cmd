@@ -1,0 +1,344 @@
+{
+    "management": {
+        "management":{
+            "get_remote_lists":{
+                "description": "Retrieve the list of available servers.",
+                "usage": "get_remote_lists",
+                "data_type": "none"
+            },
+            "_command":{
+                "common_prompt": "Please input"
+            }
+        }
+    },
+    "ai": {
+        "ai": {
+            "config": {
+                "description": "change to config context",
+                "usage": "aiconfig",
+                "data_type": "none"
+            },
+            "restart": {
+                "description": "restart",
+                "usage": "restart Ai Service",
+                "data_type": "none"
+            }
+        },
+        "config": {
+            "set_debug": {
+                "description": "Change the debug Settings",
+                "usage": "set debug <1 or 0>",
+                "data_type": "int",
+                "hints": ["1 to enable debug, 0 to disable"]
+            },
+            "set_addr": {
+                "description": "Sets the IP address and port for a service. This updates both values simultaneously.",
+                "usage": "set_addr <ip_address>:<port>",
+                "data_type": "str",
+                "hints": ["the IP address and port in the format ip:port"]
+            },
+            "set_ip": {
+                "description": "Sets the IP address for a service. This updates the IP address while keeping the port unchanged.",
+                "usage": "set_ip <ip_address>",
+                "data_type": "str",
+                "hints": ["a IP address"]
+            },
+            "set_port": {
+                "description": "Sets the port for a service. This updates the port while keeping the IP address unchanged.",
+                "usage": "set_port <port>",
+                "data_type": "str",
+                "hints": ["a port number"]
+            },
+            "_command":{
+                "common_prompt": "Please input"
+            }
+        }
+    },
+    "client": {
+        "client" : {
+            "avi": {
+                "description": "change context to avi",
+                "usage": "avi",
+                "data_type": "none"
+            },
+            "two_param": {
+                "description": "test function with two parameter",
+                "usage": "two_param <str1> <str2>",
+                "data_type": "str, str",
+                "hints": ["Input first number", "Input second number"]
+            },
+            "_command":{
+                "common_prompt": "Please input"
+            }
+        }
+    },
+    "avi": {
+        "avi": {
+            "request": {
+                "description": "Run avi simulator",
+                "usage": "request",
+                "data_type": "none",
+                "hints": []
+            },
+            "request_n": {
+                "description": "Send N Images",
+                "usage": "request_n <N>",
+                "data_type": "int",
+                "hints": ["Input the number of requests"]
+            },
+            "stop_simulator": {
+                "description": "stop avi when it's running",
+                "usage": "stop_simulator",
+                "data_type": "none",
+                "hints": []
+            },
+            "set_period": {
+                "description": "sets the number of images to be sent per second",
+                "usage": "set_period <images_per_second>",
+                "data_type": "int",
+                "hints": ["Input time iterval"]
+            },
+            "show_settings": {
+                "description": "show avi settings",
+                "usage": "show_settings",
+                "data_type": "none",
+                "hints": []
+            }
+        }
+    },
+    "common": {
+        "context": {
+            "helps": {
+                "description": "show commands list and param",
+                "usage": "helps",
+                "data_type": "none"
+            }
+        },
+        "local": {
+            "local": {},
+            "root": {
+                "restart": {
+                    "description": "restart program",
+                    "usage": "restart",
+                    "data_type": "None" 
+                },
+                "read_property": {
+                    "description": "Reads the value of nested properties given a path of attribute names. Returns the value of the final attribute if it exists.",
+                    "usage": "read_property <attr1> <attr2> ... <attrN>",
+                    "data_type": "str(dynamic)"
+                },
+                "show_all_attribute": {
+                    "description": "Collects and returns all user-defined attributes of the instance along with their values, filtering out any private or magic attributes.",
+                    "usage": "show_all_attribute",
+                    "data_type": "dict"
+                },
+                "is_object_and_show_attributes": {
+                    "description": "Checks if the attribute at the end of a given attribute path is an object and, if so, returns all its attributes. If not an object, returns an error message.",
+                    "usage": "is_object_and_show_attributes <attr1> <attr2> ... <attrN>",
+                    "data_type": "str(dynamic)"
+                }
+            },
+            "config": {
+                "get_config": {
+                    "description": "Displays the service configuration settings.",
+                    "usage": "get_config",
+                    "data_type": "none"
+                },
+                "set_zeroconfig": {
+                    "description": "Change the identifier of Zeroconfig",
+                    "usage": "set_zeroconfig <identifier>._tcp.local.",
+                    "data_type": "str",
+                    "hints": ["identifier"]
+                },
+                "_command":{
+                    "common_prompt": "Please input"
+                }
+            },
+            "log": {
+                "append_address": {
+                    "description": "Add remote log address. If the parameter is not provided, it returns your address; if the parameter is provided, it registers that address",
+                    "usage": "append_address {<ip>:<port>}",
+                    "data_type": "optional_str",
+                    "hints": ["Address"]
+                },
+                "log_status":{
+                    "description": "Shows the remote address if it has and handlers of logs address.",
+                    "usage": "log_status",
+                    "data_type": "none"
+                },
+                "delete_address":{
+                    "description": "delete the remote address. If the parameter is not provided, it returns your address; if the parameter is provided, it removes that address",
+                    "usage": "delete_address <ip>:<port>",
+                    "data_type": "optional_str",
+                    "hints": ["Address"]
+                },
+                "get_log_path": {
+                    "description": "Retrieves the path where log files are stored.",
+                    "usage": "get_log_path",
+                    "data_type": "none"
+                },
+                "test_log_n": {
+                    "description": "print number of N logs",
+                    "usage": "test_log_n <N>",
+                    "data_type": "int",
+                    "hints": ["number"]
+                },
+                "_command":{
+                    "common_prompt": "Please input"
+                }
+            }
+        },
+        "nsh":{
+            "network":{
+                "download_file": {
+                    "description": "download file",
+                    "usage": "download_file <session> <file_path>",
+                    "data_type": "int, str",
+                    "hints": ["session:", "file_path:"]
+                },
+                "upload_file": {
+                    "description": "upload file",
+                    "usage": "upload_file <session> <file_path> <Optional: number of file>",
+                    "data_type": "int, str",
+                    "hints": ["session:", "file_path:"]
+                },
+                "_command":{
+                    "common_prompt": "Please input"
+                }
+            },
+            "nsh": {
+                "change_language": {
+                    "description": "change language",
+                    "usage": "change_language <lange_name>",
+                    "data_type": "str"
+                },  
+                "log": {
+                    "description": "change to log context.",
+                    "usage": "log",
+                    "data_type": "none"
+                },
+                "ping": {
+                    "description": "Check if the session is connected.",
+                    "usage": "ping <session index>",
+                    "data_type": "int",
+                    "hints": ["session idx: "]
+                },
+                "set_management": {
+                    "description": "Set the address of the management (Mgmt) server.",
+                    "usage": "set_management <address>",
+                    "data_type": "none",
+                    "hints": ["address <ip>:<port>:"]
+                },
+                "set_adv_management": {
+                    "description": "Set the address of the management (Mgmt) server using zeroconfig id.",
+                    "usage": "set_adv_management <zeroconfig_id>",
+                    "data_type": "none",
+                    "hints": ["zeroconfig id:"]
+                },
+                "get_svc_lists_from_mgmt": {
+                    "description": "Request a list of available services from the management server.",
+                    "usage": "get_svc_lists_from_mgmt",
+                    "data_type": "none"
+                },
+                "make_connection": {
+                    "description": "Add a session for the service you want to connect to.",
+                    "usage": "make_connection",
+                    "data_type": "none",
+                    "hints": ["number or svc name:"]
+                },
+                "show_appended_svc_sessions": {
+                    "description": "Show the list of added service sessions.",
+                    "usage": "show_appended_svc_sessions",
+                    "data_type": "none"
+                },
+                "elect_current_svc_session": {
+                    "description": "Select one of the stored service sessions to use.",
+                    "usage": "elect_current_svc_session",
+                    "data_type": "none",
+                    "hints": ["number: "]
+                },
+                "show_current_session": {
+                    "description": "Show the currently selected service session.",
+                    "usage": "show_current_session",
+                    "data_type": "none"
+                },
+                "get_remote_commands": {
+                    "description": "Request a list of available commands from the selected session.",
+                    "usage": "get_remote_commands",
+                    "data_type": "none"
+                },
+                "show_remote_commands": {
+                    "description": "Show the list of available remote commands stored.",
+                    "usage": "show_remote_commands",
+                    "data_type": "none"
+                },
+                "test_two_params": {
+                    "description": "input two parameters",
+                    "usage": "test_two_params <param1> <param2>",
+                    "data_type": "any",
+                    "hints": ["first parameter:", "second parameter:"]
+                },
+                "run_my_script": {
+                    "description": "Run commands from a script file line by line.",
+                    "usage": "run_my_script <script_path>",
+                    "data_type": "file_path",
+                    "hints": ["script path:"]
+                },
+                "run_shell_script": {
+                    "description": "Run commands from a script file line by line.",
+                    "usage": "run_my_script <session_idx> <script_path>",
+                    "data_type": "int, str",
+                    "hints": ["session idx", "script path"]
+                },
+                "_command":{
+                    "common_prompt": "Please input"
+                }
+            },
+            "log":{
+                "show_remote_log_conn": {
+                    "description": "Display the address of the remote log server.",
+                    "usage": "show_remote_log_conn",
+                    "data_type": "none"
+                },
+                "alter_remote_log_conn": {
+                    "description": "Change the port of the remote log server.",
+                    "usage": "alter_remote_log_conn <port>",
+                    "data_type": "int",
+                    "hints": ["port"] 
+                },
+                "start_remote_log": {
+                    "description": "Start the remote log server on the configured port.",
+                    "usage": "start_remote_log",
+                    "data_type": "none"
+                },
+                "set_log_prefix": {
+                    "description": "Toggle the display of prefixes in logs. By default, it is turned on.",
+                    "usage": "set_log_prefix",
+                    "data_type": "none",
+                    "hints": ["1 to turn on and 0 to off"]
+                },
+                "test": {
+                    "description": "Test",
+                    "usage": "test",
+                    "data_type": "none"
+                },
+                "download_log": {
+                    "description": "download log file",
+                    "usage": "download_log <session idx> <Optional: Number of logs>",
+                    "data_type": "int",
+                    "hints": ["session idx:"]
+                },
+                "append_address": {
+                    "description": "append remote log address",
+                    "usage": "append_address <session idx> <Optional: address>",
+                    "data_type": "int",
+                    "hints": ["session idx:"]
+                },
+                "_command":{
+                    "common_prompt": "Please input"
+                }
+            }
+        }
+    }
+} 
+    
